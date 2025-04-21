@@ -29,9 +29,9 @@ function LoginForm({ onLoginSuccess }) {
         where('user', '==', formData.user),
         where('password', '==', formData.password)
       );
-      
+
       const querySnapshot = await getDocs(q);
-      
+
       if (querySnapshot.empty) {
         setError('Usuário ou senha incorretos');
         return;
@@ -43,7 +43,7 @@ function LoginForm({ onLoginSuccess }) {
         user: userData.user,
         timestamp: new Date().getTime()
       }));
-      
+
       onLoginSuccess();
     } catch (error) {
       console.error('Erro ao fazer login:', error);

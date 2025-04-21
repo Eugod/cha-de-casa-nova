@@ -1,4 +1,3 @@
-import { Navigate } from 'react-router-dom';
 import LoginForm from '../LoginForm/LoginForm';
 
 function ProtectedRoute({ children }) {

@@ -24,8 +24,7 @@ function AddProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const docRef = await addDoc(collection(db, "products"), formData);
-      console.log("Produto adicionado com ID:", docRef.id);
+      await addDoc(collection(db, "products"), formData);
       alert("Produto adicionado com sucesso!");
       setFormData({
         productImage: "",
