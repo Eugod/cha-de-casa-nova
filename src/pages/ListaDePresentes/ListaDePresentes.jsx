@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../config/firebase';
+import PurchaseModal from '../../components/PurchaseModal/PurchaseModal';
 
 const ListaDePresentes = () => {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
     const fetchProdutos = async () => {
@@ -26,6 +28,33 @@ const ListaDePresentes = () => {
     fetchProdutos();
   }, []);
 
+  const handleProductClick = (produto) => {
+    // Salvar o produto selecionado no localStorage
+    localStorage.setItem('selectedProduct', JSON.stringify(produto));
+    // Redirecionar para o link do produto
+    window.open(produto.productLink, '_blank');
+  };
+
+  useEffect(() => {
+    // Verificar se existe um produto selecionado no localStorage
+    const checkSelectedProduct = () => {
+      const savedProduct = localStorage.getItem('selectedProduct');
+      if (savedProduct) {
+        setSelectedProduct(JSON.parse(savedProduct));
+        localStorage.removeItem('selectedProduct');
+      }
+    };
+
+    // Adicionar listener para quando a janela receber foco
+    window.addEventListener('focus', checkSelectedProduct);
+    // Verificar imediatamente ao carregar a página
+    checkSelectedProduct();
+
+    return () => {
+      window.removeEventListener('focus', checkSelectedProduct);
+    };
+  }, []);
+
   if (loading) return <div className="container mx-auto p-4">Carregando...</div>;
   if (error) return <div className="container mx-auto p-4 text-red-500">{error}</div>;
 
@@ -34,7 +63,11 @@ const ListaDePresentes = () => {
       <h1 className="text-2xl font-bold mb-4">Nossos Produtos</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {produtos.map((produto) => (
-          <a key={produto.id} href={produto.productLink} target="_blank" className="border rounded-lg p-4 shadow-md">
+          <div
+            key={produto.id}
+            onClick={() => handleProductClick(produto)}
+            className="border rounded-lg p-4 shadow-md cursor-pointer hover:shadow-lg transition-shadow"
+          >
             {produto.productImage && (
               <img 
                 src={produto.productImage} 
@@ -47,9 +80,21 @@ const ListaDePresentes = () => {
             <p className="text-lg font-bold mt-2">
               R$ {produto.productPrice}
             </p>
-          </a>
+            {produto.productPurchased && (
+              <p className="text-green-600 mt-2">
+                Comprado por: {produto.productPurchasedBy}
+              </p>
+            )}
+          </div>
         ))}
       </div>
+
+      {selectedProduct && (
+        <PurchaseModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
+      )}
     </div>
   );
 };
