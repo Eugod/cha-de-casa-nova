@@ -8,7 +8,8 @@ function AddProduct() {
     productImage: "",
     productLink: "",
     productName: "",
-    productPrice: ""
+    productPrice: "",
+    productPurchased: false
   });
 
   const handleChange = (e) => {
