@@ -1,0 +1,20 @@
+.admin-page {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.add-user-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 1rem;
+}
+
+.add-user-button:hover {
+  background-color: #45a049;
+} 
