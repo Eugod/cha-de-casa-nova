@@ -4,7 +4,14 @@
   margin: 0 auto;
 }
 
-.add-user-button {
+.admin-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.add-user-button,
+.add-product-button {
   background-color: #4CAF50;
   color: white;
   padding: 10px 20px;
@@ -12,9 +19,11 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
-  margin-top: 1rem;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.add-user-button:hover {
+.add-user-button:hover,
+.add-product-button:hover {
   background-color: #45a049;
 } 

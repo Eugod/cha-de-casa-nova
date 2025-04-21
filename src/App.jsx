@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Admin from './pages/Admin/Admin'
+import AddProduct from './pages/AddProduct/AddProduct';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import './App.css'
@@ -12,6 +13,7 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/add-product" element={<AddProduct />} />
             <Route path="/" element={
               <div>
                 <h1>Bem-vindo!</h1>

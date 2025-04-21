@@ -1,5 +1,6 @@
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
+import { Link } from "react-router-dom";
 
 function Admin() {
   async function adicionarUsuario() {
@@ -20,12 +21,17 @@ function Admin() {
   return (
     <div className="admin-page">
       <h1>Página de Administração</h1>
-      <button 
-        onClick={adicionarUsuario}
-        className="add-user-button"
-      >
-        Adicionar Usuário de Teste
-      </button>
+      <div className="admin-buttons">
+        <button 
+          onClick={adicionarUsuario}
+          className="add-user-button"
+        >
+          Adicionar Usuário de Teste
+        </button>
+        <Link to="/admin/add-product" className="add-product-button">
+          Adicionar Produto
+        </Link>
+      </div>
     </div>
   );
 }
