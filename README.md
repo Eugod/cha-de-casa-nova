@@ -19,7 +19,7 @@ Chá de Casa Nova é uma aplicação web moderna desenvolvida com React e Fireba
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/cha-de-casa-nova.git
+git clone https://github.com/Eugod/cha-de-casa-nova.git
 cd cha-de-casa-nova
 ```
 
