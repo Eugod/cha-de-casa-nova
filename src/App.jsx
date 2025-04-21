@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Admin from './pages/Admin/Admin'
 import AddProduct from './pages/AddProduct/AddProduct';
 import ListaDePresentes from './pages/ListaDePresentes/ListaDePresentes';
+import Messages from './pages/Messages/Messages';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import './App.css'
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin/add-product" element={<AddProduct />} />
+            <Route path="/admin/messages" element={<Messages />} />
             <Route path="/lista-de-presentes" element={<ListaDePresentes />} />
             <Route path="/" element={
               <div>

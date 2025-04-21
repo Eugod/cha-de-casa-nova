@@ -31,6 +31,9 @@ function Admin() {
         <Link to="/admin/add-product" className="add-product-button">
           Adicionar Produto
         </Link>
+        <Link to="/admin/messages" className="add-product-button">
+          Ver Mensagens
+        </Link>
       </div>
     </div>
   );
