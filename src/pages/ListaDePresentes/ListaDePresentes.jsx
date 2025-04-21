@@ -29,6 +29,8 @@ const ListaDePresentes = () => {
   }, []);
 
   const handleProductClick = (produto) => {
+    if (produto.productPurchased) return; // Não faz nada se o produto já foi comprado
+
     // Salvar o produto selecionado no localStorage
     localStorage.setItem('selectedProduct', JSON.stringify(produto));
     // Redirecionar para o link do produto
@@ -60,18 +62,21 @@ const ListaDePresentes = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Nossos Produtos</h1>
+      <h1 className="text-2xl font-bold mb-4">Lista de Presentes</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {produtos.map((produto) => (
           <div
             key={produto.id}
             onClick={() => handleProductClick(produto)}
-            className="border rounded-lg p-4 shadow-md cursor-pointer hover:shadow-lg transition-shadow"
+            className={`border rounded-lg p-4 shadow-md ${produto.productPurchased
+              ? 'opacity-60 cursor-not-allowed'
+              : 'cursor-pointer hover:shadow-lg transition-shadow'
+              }`}
           >
             {produto.productImage && (
-              <img 
-                src={produto.productImage} 
-                alt={produto.productName} 
+              <img
+                src={produto.productImage}
+                alt={produto.productName}
                 className="w-full h-48 object-cover rounded-md mb-2"
               />
             )}
@@ -80,11 +85,11 @@ const ListaDePresentes = () => {
             <p className="text-lg font-bold mt-2">
               R$ {produto.productPrice}
             </p>
-            {produto.productPurchased && (
-              <p className="text-green-600 mt-2">
-                Comprado por: {produto.productPurchasedBy}
-              </p>
-            )}
+            {produto.productPurchased ? (
+              <div className="mt-2">
+                <p className="text-green-600 font-semibold">Produto já comprado por: {produto.productPurchasedBy}</p>
+              </div>
+            ) : null}
           </div>
         ))}
       </div>
