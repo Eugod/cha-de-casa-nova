@@ -5,12 +5,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-content">
-          <p>&copy; 2024 Chá de Casa Nova. Todos os direitos reservados.</p>
-          <div className="footer-links">
-            <a href="/sobre">Sobre</a>
-            <a href="/contato">Contato</a>
-            <a href="/privacidade">Privacidade</a>
-          </div>
+          <p>&copy; 2025 Chá de Casa Nova. Todos os direitos reservados. Desenvolvido por <a href="https://github.com/Eugod" target="_blank">Eugênio Rodrigues</a>.</p>
         </div>
       </div>
     </footer>
