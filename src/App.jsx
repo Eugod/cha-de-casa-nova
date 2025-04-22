@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Admin from './pages/Admin/Admin'
 import AddProduct from './pages/AddProduct/AddProduct';
-import ListaDePresentes from './pages/ListaDePresentes/ListaDePresentes';
+import GiftList from './pages/GiftList/GiftList';
 import Messages from './pages/Messages/Messages';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -30,7 +30,7 @@ function App() {
                 <Messages />
               </ProtectedRoute>
             } />
-            <Route path="/lista-de-presentes" element={<ListaDePresentes />} />
+            <Route path="/lista-de-presentes" element={<GiftList />} />
             <Route path="/" element={
               <div>
                 <h1>Bem-vindo!</h1>

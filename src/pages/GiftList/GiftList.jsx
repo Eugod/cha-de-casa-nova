@@ -3,7 +3,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 import PurchaseModal from '../../components/PurchaseModal/PurchaseModal';
 
-const ListaDePresentes = () => {
+const GiftList = () => {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -104,4 +104,4 @@ const ListaDePresentes = () => {
   );
 };
 
-export default ListaDePresentes; 
+export default GiftList; 
