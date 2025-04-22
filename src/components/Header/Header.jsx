@@ -33,6 +33,7 @@ function Header() {
     <header className="header">
       <div className="header-container">
         <Link to="/" className="logo">
+          <img src="../../public/home-icon.png" alt="Home" />
           Chá de Casa Nova
         </Link>
         <nav className="nav-menu">
