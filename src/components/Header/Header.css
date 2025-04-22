@@ -1,12 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
-:root {
-  --primary-color: #F2EFE7;
-  --secondary-color: #9ACBD0;
-  --tertiary-color: #48A6A7;
-  --quaternary-color: #006A71;
-  --font: 'Montserrat', sans-serif;
-}
+@import '../../index.css';
 
 .header {
   background-color: var(--quaternary-color);
