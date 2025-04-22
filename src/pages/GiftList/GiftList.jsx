@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 import PurchaseModal from '../../components/PurchaseModal/PurchaseModal';
+import './GiftList.css';
 
 const GiftList = () => {
   const [produtos, setProdutos] = useState([]);
@@ -61,33 +62,29 @@ const GiftList = () => {
   if (error) return <div className="container mx-auto p-4 text-red-500">{error}</div>;
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Lista de Presentes</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="gift-list-container">
+      <h1 className="gift-list-title">Lista de Presentes</h1>
+      <div className="gift-list-grid">
         {produtos.map((produto) => (
           <div
             key={produto.id}
             onClick={() => handleProductClick(produto)}
-            className={`border rounded-lg p-4 shadow-md ${produto.productPurchased
-              ? 'opacity-60 cursor-not-allowed'
-              : 'cursor-pointer hover:shadow-lg transition-shadow'
-              }`}
+            className={`gift-list-item ${produto.productPurchased && 'cursor-not-allowed'}`}
           >
             {produto.productImage && (
               <img
                 src={produto.productImage}
                 alt={produto.productName}
-                className="w-full h-48 object-cover rounded-md mb-2"
+                className="gift-list-image"
               />
             )}
-            <h2 className="text-xl font-semibold">{produto.productName}</h2>
-            <p className="text-gray-600">{produto.productDescription}</p>
-            <p className="text-lg font-bold mt-2">
+            <h2 className="gift-list-name">{produto.productName}</h2>
+            <p className="gift-list-price">
               R$ {produto.productPrice}
             </p>
             {produto.productPurchased ? (
-              <div className="mt-2">
-                <p className="text-green-600 font-semibold">Produto já comprado por: {produto.productPurchasedBy}</p>
+              <div className="gift-list-purchased">
+                <p className="gift-list-purchased-text">Produto já comprado por: {produto.productPurchasedBy}</p>
               </div>
             ) : null}
           </div>

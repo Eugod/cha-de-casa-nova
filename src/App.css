@@ -4,3 +4,8 @@ body {
   margin: 0;
   background-color: var(--primary-color);
 }
+
+.main-content {
+  margin: 20px auto;
+  max-width: 1280px;
+}

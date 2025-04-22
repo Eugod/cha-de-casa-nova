@@ -1,0 +1,96 @@
+@import '../../index.css';
+
+.gift-list-container {
+    padding: 0 20px;
+}
+
+.gift-list-title {
+    font-family: var(--font);
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+.gift-list-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.gift-list-item {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    border: 1px solid var(--quaternary-color);
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.gift-list-item:hover {
+    background-color: var(--quaternary-color);
+}
+
+.gift-list-item:hover .gift-list-name,
+.gift-list-item:hover .gift-list-price {
+    color: var(--primary-color);
+}
+
+.gift-list-item.cursor-not-allowed {
+    cursor: not-allowed;
+    background-color: #c0c0c0;
+    border-color: #b8b8b8;
+}
+
+.gift-list-item.cursor-not-allowed .gift-list-image {
+    filter: grayscale(100%);
+}
+
+.gift-list-item.cursor-not-allowed .gift-list-name,
+.gift-list-item.cursor-not-allowed .gift-list-price,
+.gift-list-item.cursor-not-allowed .gift-list-purchased-text {
+    color: #444444;
+}
+
+.gift-list-item.cursor-not-allowed:hover {
+    background-color: #c0c0c0;
+}
+
+.gift-list-item.cursor-not-allowed:hover .gift-list-name,
+.gift-list-item.cursor-not-allowed:hover .gift-list-price {
+    color: #444444;
+}
+
+.gift-list-image {
+    width: 300px;
+    aspect-ratio: 1/1;
+    border-radius: 8px;
+    margin: 0 auto 8px;
+}
+
+.gift-list-name {
+    font-family: var(--font);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    transition: all 0.3s ease;
+}
+
+.gift-list-price {
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.gift-list-purchased-text {
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 800;
+    margin: 8px 0 0;
+}
+    
+    
